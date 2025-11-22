@@ -1,0 +1,21 @@
+# Server configuration
+server.port=8080
+
+# MySQL configuration
+# IMPORTANT: Update these credentials with your actual MySQL values
+spring.datasource.url=jdbc:mysql://localhost:3306/castillo_infinito?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+spring.datasource.username=YOUR_MYSQL_USER
+spring.datasource.password=YOUR_MYSQL_PASSWORD
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA/Hibernate configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+# Logging
+logging.level.org.springframework.web=INFO
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+

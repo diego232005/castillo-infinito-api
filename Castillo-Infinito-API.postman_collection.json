@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "castillo-infinito-api",
+		"name": "Castillo Infinito API",
+		"description": "Colección de Postman para probar la API del Sistema de Coordinación Estratégica del Cuerpo de Cazadores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pilares",
+			"item": [
+				{
+					"name": "Obtener Pilar por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/pilares/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"pilares",
+								"1"
+							]
+						},
+						"description": "Obtiene la información completa de un Pilar por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Posición de Pilar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pilarId\": 1,\n  \"posX\": -480,\n  \"posY\": -210,\n  \"estado\": \"Herido\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/pilares/actualizar-posicion",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"pilares",
+								"actualizar-posicion"
+							]
+						},
+						"description": "Actualiza la posición y estado de un Pilar cuando establece comunicación"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints relacionados con los Pilares"
+		},
+		{
+			"name": "Inteligencia",
+			"item": [
+				{
+					"name": "Obtener Triangulación",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/inteligencia/triangulacion",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"inteligencia",
+								"triangulacion"
+							]
+						},
+						"description": "Calcula una proyección aproximada de la ubicación de Muzan y las Lunas Superiores utilizando las coordenadas de los Pilares"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints relacionados con inteligencia y triangulación"
+		},
+		{
+			"name": "Mensajes",
+			"item": [
+				{
+					"name": "Crear Mensaje Fragmentado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pilarId\": 3,\n  \"contenidoFragmentado\": \"Muz... mov... norte... ata...\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/mensajes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"mensajes"
+							]
+						},
+						"description": "Almacena un mensaje táctico fragmentado enviado por un Pilar"
+					},
+					"response": []
+				},
+				{
+					"name": "Reconstruir Mensaje",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"contenidoReconstruido\": \"Muzan se mueve hacia el norte. Preparar ataque.\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/mensajes/1/reconstruir",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"mensajes",
+								"1",
+								"reconstruir"
+							]
+						},
+						"description": "Permite reconstruir un mensaje táctico distorsionado"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints relacionados con mensajes tácticos"
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8081",
+			"type": "string"
+		}
+	]
+}
+
