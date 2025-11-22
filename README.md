@@ -360,6 +360,7 @@ The system includes a global exception handler that returns structured JSON resp
 - Confidence level is calculated based on coordinate dispersion
 
 ## 👨‍💻 Author
+Diego Alejandro Vásquez Raigoza
 
 Developed for the Spring Boot course final exam.
 
